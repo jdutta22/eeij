@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="training">
+      <h2 data-cy="trainingDetailsHeading"><span>Training</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ training.id }}</span>
+        </dd>
+        <dt><span>Training Name</span></dt>
+        <dd>
+          <span>{{ training.trainingName }}</span>
+        </dd>
+        <dt><span>Training Mode</span></dt>
+        <dd>
+          <span>{{ training.trainingMode }}</span>
+        </dd>
+        <dt><span>Training Type</span></dt>
+        <dd>
+          <span>{{ training.trainingType }}</span>
+        </dd>
+        <dt><span>Training Start Date</span></dt>
+        <dd>
+          <span>{{ training.trainingStartDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span>Traing End Date</span></dt>
+        <dd>
+          <span>{{ training.traingEndDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span>Training Year</span></dt>
+        <dd>
+          <span>{{ training.trainingYear }}</span>
+        </dd>
+        <dt><span>Training Registration</span></dt>
+        <dd>
+          <span>{{ training.trainingRegistration }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/training', training.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

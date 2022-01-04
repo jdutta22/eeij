@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="userDetails">
+      <h2 data-cy="userDetailsDetailsHeading"><span>User Details</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ userDetails.id }}</span>
+        </dd>
+        <dt><span>Designation</span></dt>
+        <dd>
+          <span>{{ userDetails.designation }}</span>
+        </dd>
+        <dt><span>Caste</span></dt>
+        <dd>
+          <span>{{ userDetails.caste }}</span>
+        </dd>
+        <dt><span>Address</span></dt>
+        <dd>
+          <span>{{ userDetails.address }}</span>
+        </dd>
+        <dt><span>Department</span></dt>
+        <dd>
+          <span>{{ userDetails.department }}</span>
+        </dd>
+        <dt><span>Discipline</span></dt>
+        <dd>
+          <span>{{ userDetails.discipline }}</span>
+        </dd>
+        <dt><span>State</span></dt>
+        <dd>
+          <span>{{ userDetails.state }}</span>
+        </dd>
+        <dt><span>Bank Account</span></dt>
+        <dd>
+          <span>{{ userDetails.bankAccount }}</span>
+        </dd>
+        <dt><span>Ifsc Code</span></dt>
+        <dd>
+          <span>{{ userDetails.ifscCode }}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+          <span>{{ userDetails.user?.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/user-details', userDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

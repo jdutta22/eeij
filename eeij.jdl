@@ -1,0 +1,40 @@
+entity User 
+entity UserDetails{
+	designation  String
+    caste String
+    address String
+    department String
+    discipline String
+    state String
+    bankAccount Integer
+    ifscCode String
+}
+
+entity Training {
+	trainingName String
+    trainingMode String
+    trainingType String
+    trainingStartDate LocalDate
+    traingEndDate LocalDate
+    trainingYear String
+    trainingRegistration Boolean
+}
+
+entity TrainingRegister {
+		userAttendance Float
+        cerificate Boolean
+
+}
+// an ignored comment
+/** not an ignored comment */
+
+
+relationship OneToOne{
+	UserDetails{user} to User
+}
+
+
+relationship ManyToOne{
+	TrainingRegister{training} to Training 
+    TrainingRegister{user} to User 
+}

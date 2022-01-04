@@ -1,0 +1,37 @@
+{
+  "name": "TrainingRegister",
+  "fields": [
+    {
+      "fieldName": "userAttendance",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "cerificate",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "training",
+      "otherEntityRelationshipName": "trainingRegister",
+      "relationshipName": "training"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "trainingRegister",
+      "relationshipName": "user"
+    }
+  ],
+  "entityTableName": "training_register",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211228100123"
+}

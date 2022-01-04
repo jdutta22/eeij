@@ -1,0 +1,44 @@
+{
+  "name": "Training",
+  "fields": [
+    {
+      "fieldName": "trainingName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trainingMode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trainingType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trainingStartDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "traingEndDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "trainingYear",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trainingRegistration",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [],
+  "entityTableName": "training",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211228100122"
+}

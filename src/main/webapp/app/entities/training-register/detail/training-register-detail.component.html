@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="trainingRegister">
+      <h2 data-cy="trainingRegisterDetailsHeading"><span>Training Register</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ trainingRegister.id }}</span>
+        </dd>
+        <dt><span>User Attendance</span></dt>
+        <dd>
+          <span>{{ trainingRegister.userAttendance }}</span>
+        </dd>
+        <dt><span>Cerificate</span></dt>
+        <dd>
+          <span>{{ trainingRegister.cerificate }}</span>
+        </dd>
+        <dt><span>Training</span></dt>
+        <dd>
+          <div *ngIf="trainingRegister.training">
+            <a [routerLink]="['/training', trainingRegister.training?.id, 'view']">{{ trainingRegister.training?.id }}</a>
+          </div>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+          <span>{{ trainingRegister.user?.id }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/training-register', trainingRegister.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

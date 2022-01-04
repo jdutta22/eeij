@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="TrainingHeading">
+    <span>Trainings</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-training"
+        [routerLink]="['/training/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Training </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="trainings?.length === 0">
+    <span>No trainings found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="trainings && trainings.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span>ID</span></th>
+          <th scope="col"><span>Training Name</span></th>
+          <th scope="col"><span>Training Mode</span></th>
+          <th scope="col"><span>Training Type</span></th>
+          <th scope="col"><span>Training Start Date</span></th>
+          <th scope="col"><span>Traing End Date</span></th>
+          <th scope="col"><span>Training Year</span></th>
+          <th scope="col"><span>Training Registration</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let training of trainings; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/training', training.id, 'view']">{{ training.id }}</a>
+          </td>
+          <td>{{ training.trainingName }}</td>
+          <td>{{ training.trainingMode }}</td>
+          <td>{{ training.trainingType }}</td>
+          <td>{{ training.trainingStartDate | formatMediumDate }}</td>
+          <td>{{ training.traingEndDate | formatMediumDate }}</td>
+          <td>{{ training.trainingYear }}</td>
+          <td>{{ training.trainingRegistration }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/training', training.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/training', training.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(training)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
